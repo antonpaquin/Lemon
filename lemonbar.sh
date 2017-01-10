@@ -1,0 +1,18 @@
+#!/bin/bash
+
+WIDTH="1920"
+HEIGHT="40"
+OFFSET_X="0"
+OFFSET_Y="0"
+
+UNDERLINE_WIDTH="7"
+
+BACKGROUND_COLOR="#333333"
+FOREGROUND_COLOR="#EEEEEE"
+
+FONT1="Nimbus"
+FONT2="FontAwesome"
+
+LEMON_ARGS="-g $WIDTH"x"$HEIGHT"+"$OFFSET_X"+"$OFFSET_Y -u $UNDERLINE_WIDTH -B $BACKGROUND_COLOR -F $FOREGROUND_COLOR -f $FONT1 -f $FONT2"
+
+python /home/anton/Scripts/Lemon/main.py | lemonbar $LEMON_ARGS | /bin/sh &

@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Anton's lemonbar
+
+[Service]
+Type=forking
+WorkingDirectory=/home/anton/Scripts/Lemon/
+Environment=XAUTHORITY=/home/anton/.Xauthority
+Environment=DISPLAY=:0
+ExecStart=/bin/bash /home/anton/Scripts/Lemon/lemonbar.sh
+
+[Install]
+WantedBy=graphical.target
