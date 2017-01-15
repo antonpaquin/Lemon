@@ -5,12 +5,12 @@ def get():
     res = {}
     res['day_of_week'] = out[0]
     res['month'] = out[1]
-    res['day_of_month'] = out[3]
-    t = out[4].split(':')
+    res['day_of_month'] = out[2]
+    t = out[3].split(':')
     res['hour'] = t[0]
     res['minute'] = t[1]
     res['second'] = t[2]
-    res['year'] = out[6]
+    res['year'] = out[5]
     return res
 
 def clock(data):
