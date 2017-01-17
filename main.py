@@ -5,6 +5,7 @@ from dataSources import cpu as m_cpu
 from dataSources import power as m_power
 from dataSources import time as m_time
 from dataSources import volume as m_volume
+from dataSources import wifi as m_wifi
 
 from time import sleep
 import threading
@@ -16,7 +17,8 @@ getInfo = {
     'cpu': m_cpu.get,
     'power': m_power.get,
     'time': m_time.get,
-    'volume': m_volume.get
+    'volume': m_volume.get,
+    'wifi': m_wifi.get
 }
 
 info = {
@@ -24,7 +26,8 @@ info = {
     'cpu': getInfo['cpu'](),
     'power': getInfo['power'](),
     'time': getInfo['time'](),
-    'volume': getInfo['volume']()
+    'volume': getInfo['volume'](),
+    'wifi': getInfo['wifi']()
 }
 
 delays = {
@@ -32,7 +35,8 @@ delays = {
     'cpu': 1,
     'power': 3,
     'time': 1,
-    'volume': 0.5
+    'volume': 0.5,
+    'wifi': 5
 }
 
 def build():
@@ -50,9 +54,9 @@ def center():
 def right():
     'volume power cpu date time buffer'
     return lemonForm.rightAlign('  |  '.join([
+        wifi(),
         volume(),
         power(),
-        cpu(),
         date(),
         clock() + '    '
     ]))
@@ -84,6 +88,10 @@ def clock():
     global info
     time_i = info['time']
     return m_time.clock(time_i)
+
+def wifi():
+    global info
+    return info['wifi']
 
 def update_input(iname, delay):
     def f():
